@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+:root {
+    --text: hsl(0, 0%, 100%);
+    --background: hsl(200, 12%, 5%);
+    --primary: hsl(211, 100%, 65%);
+    --primary-alpha: 77, 163, 255;
+    --secondary: hsl(212, 15%, 19%);
+    --tertiary: hsl(210, 18%, 11%);
+    --accent: hsl(260, 100%, 78%);
+    --accent-alpha: 180, 143, 255;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Poppins', sans-serif;
+
+    background-color: var(--background);
+    color: var(--text);
+}
+
+* {
+    font: inherit;
+}
+
+/* Nav */
+.barra-de-navegacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5rem;
+    z-index: 1000;
+    font-size: 1.5rem;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    background-color: var(--background);
+    box-shadow: 0 0.2rem 1rem black;
+
+    border-bottom: 1px solid var(--secondary);
+}
+
+
+.super-grande-cabecalho {
+    font-size: 8rem;
+    font-weight: 800;
+    letter-spacing: -0.4rem;
+}
+
+#musica-danca {
+    display: inline-block;
+    font-size: 9rem;
+    animation: dance 1s alternate infinite ease-in-out;
+}
+
+@keyframes dance {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+#grande-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background-image: radial-gradient(circle at center, rgba(var(--primary-alpha), 0.25), transparent 20vw);
+}
+
+/* Bento Grid */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+
+    height: 96vw;
+    width: 96vw;
+    margin: 2vw;
+}
+
+.item-da-grade {
+    background-image: linear-gradient(-45deg, var(--secondary), var(--tertiary));
+    padding: 2rem;
+
+    border-radius: 1rem;
+    border: solid 1px rgba(var(--primary-alpha), 0);
+    transition: all 1s ease-in-out;
+    background-size: cover;
+}
+
+.item-da-grade:hover {
+    transform: scale(1.01);
+}
+
+.redirecionar-card {
+    cursor: pointer;
+    position: relative; 
+}
+
+.redirecionar-card::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 10%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 8px 12px; 
+    border-radius: 8px; 
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    z-index: 1;
+}
+
+.redirecionar-card:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.grade-larga {
+    max-width: none;
+    grid-column: span 2;
+}
+
+.grade-alta {
+    max-height: none;
+    grid-row: span 2;
+}
+
+.grade-estreita {
+    max-height: none;
+    grid-column: span 2;
+    
+    
+}
+
+.subtitulo {
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+
+.grande {
+    font-size: 5rem;
+    font-weight: 500;
+    display: block;
+}
+
+/* Music Player */
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--tertiary);
+    border-radius: 1rem;
+}
+
+#player {
+    display: none;
+}
+
+#music-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
+}
+
+#controls button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: var(--secondary);
+    color: var(--text);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#controls button:hover {
+    background-color: var(--secondary);
+}
+
+#cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    animation: spin 4s linear infinite;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+#cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50% ;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+#progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+#progress {
+    width: 0;
+    height: 100%;
+    background-color: var(--primary);
+    transition: width 0.3s;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-conteudo {
+    background-color: var(--background);
+    margin: 20% auto;
+    padding: 20px;
+    border-radius: 20px; 
+    max-width: 900px; 
+}
+
+.fechar-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao-mais {
+    background-color: var(--secondary);
+    color: var(--text);
+    border: none;
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-mais:hover {
+    background-color: var(--accent-alpha);
+}
