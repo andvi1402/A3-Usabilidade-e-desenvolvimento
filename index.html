@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info música</title>
+    <link rel="stylesheet" href="styleHome.css">
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<body>
+    <div class="barra-de-navegacao">
+        <span class="item-de-navegacao"></span>
+    </div>
+    <div id="grande-cabecalho">
+        <h1 class="super-grande-cabecalho">Info Músicas <span id="musica-danca">🎙️</span></h1>
+    </div>
+
+    <div class="grade">
+
+        <div class="item-da-grade redirecionar-card" onclick="redirecionarParaPagina2()" title="Clique para saber mais">
+            <span>
+                <span class="subtitulo">🎶 Conheça:</span>
+                <span class="grande">Tim Maia </span>
+            </span>
+        </div>
+        <div class="item-da-grade redirecionar-card" onclick="redirecionarParaPagina3()" title="Clique para saber mais"><span>
+                <span class="subtitulo">🎶 Conheça:</span>
+                <span class="grande">Rita Lee</span>
+            </span></div>
+        <div class="item-da-grade grade-alta">
+            <span>
+                <span class="subtitulo">🎶 Conheça:</span>
+                <span class="grande">Capital Inicial </span>
+                <img src="https://i.scdn.co/image/ab67616d0000b273aaa1cb4e28baf640b38a5d5b" />
+
+            </span>
+        </div>
+        <div class="item-da-grade redirecionar-card" onclick="redirecionarParaPagina4()" title="Clique para saber mais"><span>
+                <span class="subtitulo">🎶 Conheça:</span>
+                <span class="grande">Charlie Brown Jr.</span>
+            </span>
+        </div>
+
+        <div class="item-da-grade player-container">
+            <span>
+                
+                <span class="grande">Ouça aqui</span>
+            </span>
+            <div id="player"></div>
+            <div id="music-info">
+
+                <div id="cover-container">
+                    <img id="cover" src="" alt="Capa do Álbum">
+                    <div class="center-dot"></div>
+                </div>
+
+                <h2 id="title"></h2>
+                <p id="time">00:00 / <span id="duration">00:00</span></p>
+            </div>
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+            <div id="controls">
+                <button id="prev">⏪</button>
+                <button id="play-pause">▶️</button>
+                <button id="next">⏩</button>
+            </div>
+        </div>
+        <div class="conteudo">
+            <span>
+                <div class="item-da-grade"><span>
+                        <span class="subtitulo">Sobre Nós</span>
+                        <span class="grande">SAIBA MAIS</span>
+                    </span>
+                    <button class="botao-mais">+</button>
+                </div>
+                <div id="modal" class="modal">
+                    <div class="modal-conteudo">
+                        <span class="fechar-modal">&times;</span>
+                        <h2></h2>
+                        <p>Isabelly Martins Feitosa - 12523138485</p>
+                        <p>Vinicius de Lima Andrade - 12522154510</p>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+        <script src="scriptIndex.js"></script>
+</body>
+
+</html>
